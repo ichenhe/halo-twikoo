@@ -3,20 +3,19 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  # The name defines how the plugin is invoked, A unique name
-  name: starter
+  name: twikoo
 spec:
   enabled: true
   requires: ">=2.11.0"
   author:
-    name: Halo
-    website: https://github.com/halo-dev
+    name: Chenhe
+    website: https://chenhe.me
   logo: logo.png
-  homepage: https://github.com/halo-dev/plugin-starter#readme
-  repo: https://github.com/halo-dev/plugin-starter
-  issues: https://github.com/halo-dev/plugin-starter/issues
-  displayName: "插件快速开始模板"
-  description: "这是一个插件快速开始模板"
+  homepage: https://github.com/ichenhe/halo-twikoo#readme
+  repo: https://github.com/ichenhe/halo-twikoo
+  issues: https://github.com/ichenhe/halo-twikoo/issues
+  displayName: "Twikoo"
+  description: "集成 Twikoo 评论系统到 Halo"
   license:
     - name: "GPL-3.0"
-      url: "https://github.com/halo-dev/plugin-starter/blob/main/LICENSE"
+      url: "https://github.com/ichenhe/halo-twikoo/blob/main/LICENSE"
