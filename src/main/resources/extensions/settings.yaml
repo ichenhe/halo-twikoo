@@ -1,0 +1,27 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: twikoo-settings
+spec:
+  forms:
+    - group: basic
+      label: 设置
+      formSchema:
+        - $el: 'p'
+          attrs:
+            style: { padding: '4px 0', color: 'red' }
+          children: "若启用后不生效，请关闭其他评论插件，例如「评论组件」。"
+
+        - $formkit: text
+          name: jsUrl
+          label: 前端脚本地址
+          value: https://cdn.staticfile.org/twikoo/1.6.34/twikoo.all.min.js
+          placeholder: https://cdn.staticfile.org/twikoo/1.6.34/twikoo.all.min.js
+          help: "请确保与后端 Twikoo 版本匹配"
+          validation: "required|url"
+
+        - $formkit: text
+          name: envId
+          label: envId
+          help: "通常是腾讯云 envId 或自托管的访问链接，具体参见 Twikoo 文档：https://twikoo.js.org/frontend.html"
+          validation: required

@@ -11,6 +11,8 @@ spec:
     name: Chenhe
     website: https://chenhe.me
   logo: logo.png
+  settingName: twikoo-settings
+  configMapName: twikoo-configMap
   homepage: https://github.com/ichenhe/halo-twikoo#readme
   repo: https://github.com/ichenhe/halo-twikoo
   issues: https://github.com/ichenhe/halo-twikoo/issues
