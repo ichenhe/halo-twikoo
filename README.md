@@ -3,6 +3,7 @@
     <h1>Halo - Twikoo</h1>
     <p>将 <a href="https://twikoo.js.org/">Twikoo</a> 评论系统集成到 <a href="https://www.halo.run/">Halo</a>。</p>
     <p align="center">
+        <a href="https://www.halo.run/store/apps/app-FgtLY"><img alt="Halo App Store" src="https://img.shields.io/badge/Halo-%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA-%230A81F5?style=flat-square&logo=appstore&logoColor=%23fff" /></a>
         <a href="//github.com/ichenhe/halo-twikoo/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/ichenhe/halo-twikoo?style=flat-square&logo=github" /></a>
         <a href="//github.com/ichenhe/halo-twikoo/actions/workflows/ci.yaml"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ichenhe/halo-twikoo/ci.yaml?style=flat-square&label=build" /></a>
         <a href="./LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/ichenhe/halo-twikoo?style=flat-square" /></a>
