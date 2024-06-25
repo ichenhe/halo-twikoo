@@ -1,0 +1,9 @@
+apiVersion: plugin.halo.run/v1alpha1
+kind: ExtensionDefinition
+metadata:
+  name: twikoo-comment-widget
+spec:
+  className: me.chenhe.halo.twikoo.Comment
+  extensionPointName: comment-widget
+  displayName: "Twikoo 评论组件"
+  description: "集成 Twikoo 评论系统"
