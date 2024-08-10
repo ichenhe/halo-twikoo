@@ -14,9 +14,19 @@
 
 ## 📖 使用说明
 
-**⚠️ 请禁用其他评论插件（例如「评论组件」）确保本插件生效！** 目前 Halo 尚未支持多插件实现的切换，详见此 issue: https://github.com/halo-dev/halo/issues/5835#issuecomment-2089451852
+### 激活插件
 
-安装后点击插件进入设置。
+#### Halo v2.17+
+
+安装并启用插件后，进入 Halo 后台「插件-扩展配置-评论组件」，选中本插件。
+
+<img width="1591" alt="image" src="https://github.com/user-attachments/assets/de178382-50f6-4e4e-afd0-d1894dc0d48d">
+
+
+#### < Halo v2.17
+
+请禁用其他评论插件（例如「评论组件」）确保本插件生效
+
 
 ### 前端脚本地址
 
