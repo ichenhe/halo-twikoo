@@ -47,23 +47,67 @@ public class Comment implements CommentWidget {
                         }
                         
                         function initTwikoo() {
+                            // 瞬间页格式检测器（可扩展）
+                            const momentPageDetectors = [
+                                // 检测器1: 检查是否存在moment-comment容器
+                                function() {
+                                    return document.querySelector('.moment-comment') !== null;
+                                },
+                                // 检测器2: 检查是否存在moment-body容器
+                                function() {
+                                    return document.querySelector('.moment-body') !== null;
+                                },
+                                // 检测器3: 检查是否存在moment-item容器
+                                function() {
+                                    return document.querySelector('.moment-item') !== null;
+                                }
+                                // 可以在这里添加更多检测器...
+                            ];
+                            
+                            // 检查是否为瞬间页格式
+                            function isMomentPage() {
+                                return momentPageDetectors.some(detector => detector());
+                            }
+                            
+                            // 从moment-comment容器获取路径
+                            function getMomentCommentPath(container) {
+                                const currentPath = window.location.pathname;
+                                
+                                // 从当前容器向上查找moment-comment
+                                let momentComment = container.closest('.moment-comment');
+                                
+                                // 如果向上找不到，在文档中查找
+                                if (!momentComment) {
+                                    momentComment = document.querySelector('.moment-comment');
+                                }
+                                
+                                if (!momentComment) {
+                                    console.log('[Twikoo] 未找到moment-comment容器');
+                                    return null;
+                                }                              
+                                
+                                // 从父级moment-item获取ID
+                                const momentItem = momentComment.closest('.moment-item');
+                                if (momentItem && momentItem.id) {
+                                    const pathSuffix = 'moment-' + momentItem.id.replace('moment-', '');
+                                    console.log(`[Twikoo] 使用moment-item ID: ${currentPath}/${pathSuffix}`);
+                                    return currentPath + '/' + pathSuffix;
+                                }
+                              
+                                console.log('[Twikoo] moment-comment容器存在但无法提取ID');
+                                return null;
+                            }
+                            
                             // 动态设置path逻辑
                             function getTwikooPath(container) {
-                                const momentBody = container.closest('.moment-item') || 
-                                                 container.querySelector('.moment-body') ||
-                                                 document.querySelector('.moment-body');
-                                if (!momentBody) {
-                                    return undefined; // 没有moment-body容器，不设置path
+                                // 首先检查是否为瞬间页格式
+                                if (isMomentPage()) {
+                                    console.log('[Twikoo] 检测到瞬间页格式，使用moment-comment策略');
+                                    return getMomentCommentPath(container);
+                                } else {
+                                    console.log('[Twikoo] 非瞬间页格式，使用默认路径');
+                                    return undefined;
                                 }
-                                
-                                // 查找moment-item容器获取ID
-                                const momentItem = momentBody.closest('.moment-item');
-                                if (momentItem && momentItem.id) {
-                                    const currentPath = window.location.pathname;
-                                    return currentPath + '/moment-' + momentItem.id.replace('moment-', '');
-                                }
-                                
-                                return undefined;
                             }
                             
                             const container = document.getElementById('%s');
