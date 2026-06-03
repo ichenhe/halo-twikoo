@@ -3,15 +3,21 @@ import java.util.concurrent.TimeUnit
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.0.1"
-    id "run.halo.plugin.devtools" version "0.0.7"
+    id "run.halo.plugin.devtools" version "0.6.2"
 }
 
 group 'me.chenhe.halo'
 version = extractVersionFromGit()
 
-sourceCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
+    // 阿里云镜像（国内访问更快）
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    maven { url 'https://maven.aliyun.com/repository/central' }
+    maven { url 'https://maven.aliyun.com/repository/spring' }
+    
+    // 原有仓库作为备用
     mavenCentral()
     maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
@@ -19,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('run.halo.tools.platform:plugin:2.11.0-SNAPSHOT')
+    implementation platform('run.halo.tools.platform:plugin:2.23.0')
     compileOnly 'run.halo.app:api'
 
     testImplementation 'run.halo.app:api'
@@ -35,7 +41,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 halo {
-    version = '2.11'
+    version = '2.23.0'
 }
 
 tasks.register('version') {
